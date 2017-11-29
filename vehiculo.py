@@ -36,6 +36,6 @@ class vehiculo(osv.Model):
             ('gasolina','Gasolina'),
             ('diesel','Diesel'),
             ('electrico','Electrico'),], 'Tipo de combustible'),
-            'numPuertas':fields.integer("Numero de puertas")
+            'plazas':fields.integer("Numero de plazas")
         }
 vehiculo()

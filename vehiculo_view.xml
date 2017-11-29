@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_quintocar_vehiculo_form">
+			<field name="name">view_quintocar_vehiculo_form</field>
+			<field name="model">vehiculo</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Vehiculos">
+					<field name="name"/>
+					<field name="marca" />
+					<field name="modelo" />
+					<field name="tasacion" />
+					<field name="combustible" />
+					<field name="plazas" />
+				</form>
+			</field>
+		</record>
+
+		<record id="act_vehiculo" model="ir.actions.act_window">
+			<field name="name">Vehiculos</field>
+			<field name="res_model">vehiculo</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+		</record>
+
+		<menuitem id="quintoCar" name="QuintoCar" action="act_vehiculo" />
+		<menuitem name="Vehiculo" id="vehiculo_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver vehiculos" id="ver_vehiculos_submenu" parent="vehiculo_submenu"
+			sequence="130" action="act_vehiculo" />
+	</data>
+</openerp>
