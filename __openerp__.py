@@ -24,7 +24,7 @@
     "name": "QuintoCar",
     "version": "1.0",
     "depends": ["base"],
-    "author": "Grupo 9",
+    "author": "Grupo 6",
     "category": "QuintoCar",
     "description": """
     Compra-venta de vehiculos de segunda mano.
