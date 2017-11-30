@@ -9,7 +9,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Empleados">
-					<field name="nombre"/>
+					<field name="name"/>
 					<field name="apellidos" />
 					<field name="DNI"/>
 					<field name="numero ventas"/>
@@ -25,7 +25,7 @@
  			<field name = "type">tree</field>
  			<field name = "arch" type = "xml">
             	<tree string="tree_string">
-                	<field name="nombre"/>
+                	<field name="name"/>
                     <field name="apellidos" />
 					<field name="DNI"/>
 					<field name="numero ventas"/>
