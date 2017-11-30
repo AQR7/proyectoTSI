@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+	
+		<!-- Form view, Vista tipo formulario -->
 		<record model="ir.ui.view" id="view_empleado_form">
 			<field name="name">view_empleado_form</field>
 			<field name="model">empleado</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Empleados">
-					<field name="name"/>
+					<field name="nombre"/>
 					<field name="apellidos" />
 					<field name="DNI"/>
 					<field name="numero ventas"/>
@@ -15,17 +17,35 @@
 				</form>
 			</field>
 		</record>
-<!--  
+		
+		<!-- Tree view, Vista con estructura de arbol -->
+ 		<record model = "ir.ui.view" id = "view_empleado_tree">
+ 			<field name = "name">view_empleado_tree</field>
+ 			<field name = "model">empleado</field>
+ 			<field name = "type">tree</field>
+ 			<field name = "arch" type = "xml">
+            	<tree string="tree_string">
+                	<field name="nombre"/>
+                    <field name="apellidos" />
+					<field name="DNI"/>
+					<field name="numero ventas"/>
+					<field name="salario"/>
+                </tree>
+            </field>
+ 		</record>
+ 		
+ 		<!-- Definicion de acciones -->
 		<record id="act_empleado" model="ir.actions.act_window">
 			<field name="name">Empleados</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form</field>
+			<field name="view_mode">tree,form</field>
 		</record>
--->
+		
+		<!-- Definicion de menus -->
 		<menuitem name="Empleado" id="empleados_submenu" parent="quintoCar"
 			sequence="120" />
 		<menuitem name="Ver empleados" id="ver_empleados_submenu" parent="empleados_submenu"
-			sequence="130" <!-- action="act_empleado" --> />
+			sequence="130" action="act_empleado" />
 	</data>
 </openerp>
