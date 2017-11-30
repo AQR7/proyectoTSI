@@ -52,7 +52,7 @@
 			<field name="name">Empleados</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
 		
 		<!-- Definicion de menus -->
