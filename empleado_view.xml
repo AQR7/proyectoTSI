@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_empleado_form">
+			<field name="name">view_empleado_form</field>
+			<field name="model">empleado</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Empleados">
+					<field name="name"/>
+					<field name="apellidos" />
+					<field name="DNI"/>
+					<field name="numero ventas"/>
+					<field name="salario"/>
+				</form>
+			</field>
+		</record>
+<!--  
+		<record id="act_empleado" model="ir.actions.act_window">
+			<field name="name">Empleados</field>
+			<field name="res_model">empleado</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+		</record>
+-->
+		<menuitem name="Empleado" id="empleados_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver empleados" id="ver_empleados_submenu" parent="empleados_submenu"
+			sequence="130" <!-- action="act_empleado" --> />
+	</data>
+</openerp>
