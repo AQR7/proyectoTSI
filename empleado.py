@@ -30,7 +30,7 @@ class empleado(osv.Model):
             'name':fields.char('Nombre', size = 15, required = True),
             'apellidos':fields.char('Apellidos', size = 60, required = True),
             'DNI':fields.char('DNI', size = 10, required = True),
-            'numero ventas':fields.integer('Numero de ventas', required = True),
+            'numero_ventas':fields.integer('Numero de ventas', required = True),
             'salario':fields.float('Salario', required = True)  
             }
 empleado()
