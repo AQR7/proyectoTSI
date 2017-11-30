@@ -27,10 +27,10 @@ class empleado(osv.Model):
     _description = 'Empleado de QUINTOCAR'
     
     _columns = {
-            'name':fields.char('nombre del empleado', size = 15, required = True),
-            'apellidos':fields.char('apellidos del empleado', size = 60, required = True),
-            'DNI':fields.char('dni empleado', size = 10, required = True),
-            'numero ventas':fields.integer('numero de ventas del empleado', required = True),
-            'salario':fields.float('salario del empleado', required = True)  
+            'name':fields.char('Nombre', size = 15, required = True),
+            'apellidos':fields.char('Apellidos', size = 60, required = True),
+            'DNI':fields.char('DNI', size = 10, required = True),
+            'numero ventas':fields.integer('Numero de ventas', required = True),
+            'salario':fields.float('Salario', required = True)  
             }
 empleado()
