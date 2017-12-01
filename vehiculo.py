@@ -29,8 +29,15 @@ class vehiculo(osv.Model):
  
     _columns = {
             'name':fields.char('Matricula', size=9, required=True),
-            'marca':fields.char('Marca', size=30,required=True),
-            'modelo':fields.char('Modelo',size=64,required=True),
+            'marca':fields.selection([
+            ('bmw','BMW'),
+            ('ford','FORD'),
+            ('mercedes','MERCEDES'),
+            ('audi','AUDI'),
+            ('seat','SEAT'),
+            ('toyota','TOYOTA'),
+            ('peugeot','PEUGEOT'),],'Marca',required=True),
+            'modelo':fields.char('Modelo', size=60, required=True),
             'tasacion':fields.float("Tasacion",required=True),
             'combustible':fields.selection([
             ('gasolina','Gasolina'),

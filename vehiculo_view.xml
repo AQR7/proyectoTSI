@@ -7,13 +7,45 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Vehiculos">
-					<field name="name"/>
+				
+					<field name="name" />
 					<field name="marca" />
 					<field name="modelo" />
 					<field name="tasacion" />
 					<field name="combustible" />
 					<field name="plazas" />
+
+
 				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_quintocar_vehiculo_tree_view">
+			<field name="name">view_quintocar_vehiculo_tree</field>
+			<field name="model">vehiculo</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="marca" />
+					<field name="modelo" />
+					<field name="tasacion" />
+					<field name="combustible" />
+					<field name="plazas" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_filtro_marca" model="ir.ui.view">
+			<field name="name">view_filtro_marca</field>
+			<field name="model">vehiculo</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name" />
+					<filter name="group_user" string="Por marca" context="{'group_by':'marca'}" />
+					<separator />
+					<filter name="group_user" string="Por modelo" context="{'group_by':'modelo'}" />
+				</search>
 			</field>
 		</record>
 
@@ -21,13 +53,13 @@
 			<field name="name">Vehiculos</field>
 			<field name="res_model">vehiculo</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form</field>
+			<field name="view_mode">form,tree</field>
 		</record>
 
 		<menuitem id="quintoCar" name="QuintoCar" action="act_vehiculo" />
 		<menuitem name="Vehiculo" id="vehiculo_submenu" parent="quintoCar"
 			sequence="120" />
-		<menuitem name="Ver vehiculos" id="ver_vehiculos_submenu" parent="vehiculo_submenu"
-			sequence="130" action="act_vehiculo" />
+		<menuitem name="Ver vehiculos" id="ver_vehiculos_submenu"
+			parent="vehiculo_submenu" sequence="130" action="act_vehiculo" />
 	</data>
 </openerp>
