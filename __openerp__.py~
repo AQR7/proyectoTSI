@@ -30,7 +30,7 @@
     Compra-venta de vehiculos de segunda mano.
     """,
     "init_xml": [],
-    'data': ['vehiculo_view.xml'],
+    'data': ['vehiculo_view.xml','empleado_view.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False

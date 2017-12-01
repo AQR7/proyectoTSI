@@ -21,3 +21,4 @@
 ##############################################################################
 import vehiculo
 import empleado
+import cliente

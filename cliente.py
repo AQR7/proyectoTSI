@@ -19,19 +19,18 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+from osv import osv
+from osv import fields
 
-{
-    "name": "QuintoCar",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "Grupo 6",
-    "category": "QuintoCar",
-    "description": """
-    Compra-venta de vehiculos de segunda mano.
-    """,
-    "init_xml": [],
-    'data': ['vehiculo_view.xml','empleado_view.xml','cliente_view.xml'],
-    'demo_xml': [],
-    'installable': True,
-    'active': False
-}
+class cliente(osv.Model):
+
+    _name = 'cliente'
+    _description = 'Modelo para clientes'
+ 
+    _columns = {
+            'name':fields.char('DNI', size=9, required=True),
+            'nombre':fields.char('Nombre', size=30,required=True),
+            'apellidos':fields.char('Apellidos',size=64,required=True),
+            'telefono':fields.char("Telefono",required=True)
+        }
+cliente()
