@@ -33,7 +33,7 @@
                 </tree>
             </field>
  		</record>
- 		
+		
  		<!-- Grafico circular (tarta) --> 
  		<record model = "ir.ui.view" id = "view_empleado_graph">
  			<field name = "name">view_empleado_graph</field>
@@ -46,7 +46,7 @@
                 </graph>
             </field>
  		</record>
- 		
+
  		<!-- Definicion de acciones -->
 		<record id="act_empleado" model="ir.actions.act_window">
 			<field name="name">Empleados</field>
