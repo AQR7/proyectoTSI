@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_quintocar_reparacion_form">
+			<field name="name">view_quintocar_reparacion_form</field>
+			<field name="model">reparacion</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Reparación">
+				
+					<field name="name" colspan="2" />
+
+					<notebook colspan="4">
+						<page string="Datos reparacion">
+							<field name="vehiculo_id"/>
+							<newline/>
+							<field name="coste" widget="monetary" />
+							<field name="fecharep" />
+							<field name="descripcion" colspan="4" />
+
+
+						</page>
+						<page string="Talleres">
+							<field name="talleres_ids"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_quintocar_reparacion_tree_view">
+			<field name="name">view_quintocar_reparacion_tree</field>
+			<field name="model">reparacion</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="coste" widget="monetary" />
+					<field name="fecharep" />
+					<field name="descripcion" />
+
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_reparacion" model="ir.actions.act_window">
+			<field name="name">Reparaciones</field>
+			<field name="res_model">reparacion</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+		<menuitem id="quintoCar" name="QuintoCar" action="act_reparacion" />
+		<menuitem name="Reparacion" id="reparacion_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver reparaciones" id="ver_reparaciones_submenu"
+			parent="reparacion_submenu" sequence="130" action="act_reparacion" />
+	</data>
+</openerp>

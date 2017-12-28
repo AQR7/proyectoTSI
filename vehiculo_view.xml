@@ -7,15 +7,13 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Vehiculos">
-				
-					<field name="name" />
-					<field name="marca" />
+					<field name="name" colspan="2" />
+					<newline></newline>
+					<field name="marca"/>
 					<field name="modelo" />
-					<field name="tasacion" />
 					<field name="combustible" />
+					<field name="tasacion" />
 					<field name="plazas" />
-
-
 				</form>
 			</field>
 		</record>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_quintocar_taller_form">
+			<field name="name">view_quintocar_taller_form</field>
+			<field name="model">taller</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Taller">
+
+					<field name="name" colspan="2" />
+
+					<newline></newline>
+					<notebook colspan="4">
+
+						<page string="Datos taller">
+							<field name="cif" colspan="2" />
+							<field name="provincia" />
+							<field name="direccion" />
+							<field name="fechaApertura" />
+							<field name="especializado" />
+
+
+						</page>
+						<page string="Ver reparaciones">
+							<field name="reparaciones_ids" readonly="True"/>
+						</page>
+					</notebook>
+
+
+
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_quintocar_taller_tree_view">
+			<field name="name">view_quintocar_taller_tree</field>
+			<field name="model">taller</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="cif" />
+
+					<field name="provincia" />
+					<field name="direccion" />
+
+					<field name="especializado" />
+
+					<field name="fechaApertura" />
+					<field name="reparaciones_ids" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_taller" model="ir.actions.act_window">
+			<field name="name">Talleres</field>
+			<field name="res_model">taller</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+		<menuitem id="quintoCar" name="QuintoCar" action="act_taller" />
+		<menuitem name="Taller" id="taller_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver talleres" id="ver_taller_submenu" parent="taller_submenu"
+			sequence="130" action="act_taller" />
+	</data>
+</openerp>

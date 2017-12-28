@@ -19,8 +19,20 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-import vehiculo
-import empleado
-import cliente
-import reparacion
-import taller
+
+from osv import osv
+from osv import fields
+
+class reparacion(osv.Model):
+
+    _name = 'reparacion'
+    _description = 'Modelo de reparacion de vehiculos'
+    _columns = {
+            'name':fields.char('Nombre', size=30 , required=True),
+            'vehiculo_id':fields.many2one('vehiculo', 'Vehiculo', required=True), 
+            'descripcion': fields.text('Descripcion'), 
+            'coste':fields.float("Tasacion",required=True),
+            'fecharep': fields.datetime('Fecha reparación',required=True, autodate = True),
+            'talleres_ids': fields.many2many('taller','taller_reparacion_rel', 'reparacion_id', 'taller_id', 'Talleres reparacion'),
+         }
+reparacion()
