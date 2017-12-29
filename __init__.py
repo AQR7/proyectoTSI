@@ -24,3 +24,5 @@ import empleado
 import cliente
 import reparacion
 import taller
+import compra
+import proveedor

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+		<!-- Form view, Vista tipo formulario -->
+		<record model="ir.ui.view" id="view_proveedor_form">
+			<field name="name">view_proveedor_form</field>
+			<field name="model">proveedor</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Proveedores">
+					<field name="name"/>
+					<field name="nombre" />
+					<field name="direccion"/>
+					<field name="telefono"/>
+					<field name="tipo"/>
+					<field name="sede" />
+					<field name="correo"/>
+					<field name="compras_id"/>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Tree view, Vista con estructura de arbol -->
+ 		<record model = "ir.ui.view" id = "view_proveedor_tree">
+ 			<field name = "name">view_proveedor_tree</field>
+ 			<field name = "model">proveedor</field>
+ 			<field name = "type">tree</field>
+ 			<field name = "arch" type = "xml">
+            	<tree string="tree_string">
+                	<field name="name"/>
+					<field name="nombre" />
+					<field name="direccion"/>
+					<field name="telefono"/>
+					<field name="tipo"/>
+					<field name="sede" />
+					<field name="correo"/>
+					<field name="compras_id"/>
+                </tree>
+            </field>
+ 		</record>
+		
+ 		<!-- Definicion de acciones -->
+		<record id="act_proveedor" model="ir.actions.act_window">
+			<field name="name">Proveedores</field>
+			<field name="res_model">proveedor</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<!-- Definicion de menus -->
+		<menuitem name="Proveedor" id="proveedores_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver proveedores" id="ver_proveedores_submenu" parent="proveedores_submenu"
+			sequence="130" action="act_proveedor" />
+	</data>
+</openerp>

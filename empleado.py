@@ -31,6 +31,11 @@ class empleado(osv.Model):
             'apellidos':fields.char('Apellidos', size = 60, required = True),
             'DNI':fields.char('DNI', size = 10, required = True),
             'numero_ventas':fields.integer('Numero de ventas', required = True),
-            'salario':fields.float('Salario', required = True)  
+            'salario':fields.float('Salario', required = True),
+            'provincia':fields.char('Provincia', size = 20, required = True),
+            'nacionalidad_id': fields.many2one('res.country','Nacionalidad',required=True),
+            'direccion': fields.text('Direccion'),
+            'correo': fields.char('Direccion de correo', size = 40, required = True),
+            'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False)
             }
 empleado()

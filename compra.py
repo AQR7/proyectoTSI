@@ -19,19 +19,24 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+from osv import osv
+from osv import fields
+from openerp.osv.fields import many2one
 
-{
-    "name": "QuintoCar",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "Grupo 6",
-    "category": "QuintoCar",
-    "description": """
-    Compra-venta de vehiculos de segunda mano.
-    """,
-    "init_xml": [],
-    'data': ['vehiculo_view.xml','empleado_view.xml','cliente_view.xml','reparacion_view.xml','taller_view.xml','compra_view.xml','proveedor_view.xml'],
-    'demo_xml': [],
-    'installable': True,
-    'active': False
-}
+
+class compra(osv.Model):
+
+    _name = 'compra'
+    _description = 'Modelo para compra'
+ 
+    _columns = {
+            'importe': fields.float('Importe'),
+            'fecha': fields.datetime('Fecha',required=True, autodate = True), 
+            'comentarios': fields.text('Comentarios'),
+            'image': fields.binary('Image', help = 'Select image here'),
+            'proveedor_id': many2one('proveedor','Proveedor',required=True),
+            'empleado_id': many2one('empleado','Empleado',required=True),
+            
+            
+        }
+compra()

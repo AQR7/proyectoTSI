@@ -19,19 +19,21 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+from osv import osv
+from osv import fields
 
-{
-    "name": "QuintoCar",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "Grupo 6",
-    "category": "QuintoCar",
-    "description": """
-    Compra-venta de vehiculos de segunda mano.
-    """,
-    "init_xml": [],
-    'data': ['vehiculo_view.xml','empleado_view.xml','cliente_view.xml','reparacion_view.xml','taller_view.xml','compra_view.xml','proveedor_view.xml'],
-    'demo_xml': [],
-    'installable': True,
-    'active': False
-}
+class proveedor(osv.Model):
+    _name = 'proveedor'
+    _description = 'Proveedor de QUINTOCAR'
+    
+    _columns = {
+            'name':fields.char('CIF', size = 15, required = True),
+            'nombre':fields.char('Nombre', size = 20, required = True),
+            'direccion': fields.text('Direccion'),
+            'telefono':fields.char('Telefono', size = 10, required = True),
+            'tipo': fields.char('Tipo', size=64, required=False, readonly=False),
+            'sede': fields.char('Sede', size=64, required=False, readonly=False),
+            'correo': fields.char('Direccion de correo', size = 40, required = True),
+            'compras_id': fields.one2many('compra','proveedor_id', 'Ventas realizadas', required=False)            
+            }
+proveedor()

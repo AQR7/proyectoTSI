@@ -14,6 +14,11 @@
 					<field name="DNI"/>
 					<field name="numero_ventas"/>
 					<field name="salario"/>
+					<field name="provincia" />
+					<field name="nacionalidad_id"/>
+					<field name="direccion"/>
+					<field name="correo"/>
+					<field name="compras_ids"/>
 				</form>
 			</field>
 		</record>
@@ -30,6 +35,11 @@
 					<field name="DNI"/>
 					<field name="numero_ventas"/>
 					<field name="salario"/>
+					<field name="provincia" />
+					<field name="nacionalidad_id"/>
+					<field name="direccion"/>
+					<field name="correo"/>
+					<field name="compras_ids"/>
                 </tree>
             </field>
  		</record>
