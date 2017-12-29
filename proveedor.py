@@ -34,6 +34,6 @@ class proveedor(osv.Model):
             'tipo': fields.char('Tipo', size=64, required=False, readonly=False),
             'sede': fields.char('Sede', size=64, required=False, readonly=False),
             'correo': fields.char('Direccion de correo', size = 40, required = True),
-            'compras_id': fields.one2many('compra','proveedor_id', 'Ventas realizadas', required=False)            
+            'compras_ids': fields.one2many('compra','proveedor_id', 'Ventas realizadas', required=False)            
             }
 proveedor()

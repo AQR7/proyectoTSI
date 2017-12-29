@@ -9,14 +9,20 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Proveedores">
-					<field name="name"/>
-					<field name="nombre" />
-					<field name="direccion"/>
-					<field name="telefono"/>
-					<field name="tipo"/>
-					<field name="sede" />
-					<field name="correo"/>
-					<field name="compras_id"/>
+				<notebook colspan="4">
+					<page string = "Datos Proveedor">
+						<field name="name"/>
+						<field name="nombre" />
+						<field name="direccion"/>
+						<field name="telefono"/>
+						<field name="tipo"/>
+						<field name="sede" />
+						<field name="correo"/>
+					</page>
+					<page string = "Ventas Realizadas">	
+						<field name="compras_ids"/>
+					</page>
+				</notebook>
 				</form>
 			</field>
 		</record>
@@ -35,7 +41,6 @@
 					<field name="tipo"/>
 					<field name="sede" />
 					<field name="correo"/>
-					<field name="compras_id"/>
                 </tree>
             </field>
  		</record>
@@ -45,7 +50,7 @@
 			<field name="name">Proveedores</field>
 			<field name="res_model">proveedor</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">form,tree</field>
 		</record>
 		
 		<!-- Definicion de menus -->

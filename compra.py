@@ -33,7 +33,7 @@ class compra(osv.Model):
             'importe': fields.float('Importe'),
             'fecha': fields.datetime('Fecha',required=True, autodate = True), 
             'comentarios': fields.text('Comentarios'),
-            'image': fields.binary('Image', help = 'Select image here'),
+            'image': fields.binary('Contrato', help = 'Seleccionar imagen'),
             'proveedor_id': many2one('proveedor','Proveedor',required=True),
             'empleado_id': many2one('empleado','Empleado',required=True),
             

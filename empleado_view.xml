@@ -9,16 +9,22 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Empleados">
-					<field name="name"/>
-					<field name="apellidos" />
-					<field name="DNI"/>
-					<field name="numero_ventas"/>
-					<field name="salario"/>
-					<field name="provincia" />
-					<field name="nacionalidad_id"/>
-					<field name="direccion"/>
-					<field name="correo"/>
-					<field name="compras_ids"/>
+				<notebook colspan="4">
+					<page string="Datos empleado">
+						<field name="name"/>
+						<field name="apellidos" />
+						<field name="DNI"/>
+						<field name="numero_ventas"/>
+						<field name="salario"/>
+						<field name="provincia" />
+						<field name="nacionalidad_id"/>
+						<field name="direccion"/>
+						<field name="correo"/>
+					</page>
+					<page string="Compras Realizadas">	
+						<field name="compras_ids"/>
+					</page>
+				</notebook>
 				</form>
 			</field>
 		</record>
@@ -39,7 +45,6 @@
 					<field name="nacionalidad_id"/>
 					<field name="direccion"/>
 					<field name="correo"/>
-					<field name="compras_ids"/>
                 </tree>
             </field>
  		</record>
@@ -62,7 +67,7 @@
 			<field name="name">Empleados</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form,graph</field>
+			<field name="view_mode">form,tree,graph</field>
 		</record>
 		
 		<!-- Definicion de menus -->
