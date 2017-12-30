@@ -36,6 +36,9 @@ class empleado(osv.Model):
             'nacionalidad_id': fields.many2one('res.country','Nacionalidad',required=True),
             'direccion': fields.text('Direccion'),
             'correo': fields.char('Direccion de correo', size = 40, required = True),
-            'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False)
+            'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False),
+            'state':fields.selection([('solicitante','Solicitante'),('contratado','Contratado'),('despedido','Despedido')],'Estados')
             }
+    _defaults = {'state': 'solicitante'}
+    
 empleado()
