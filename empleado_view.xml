@@ -17,14 +17,20 @@
 						<field name="numero_ventas"/>
 						<field name="salario"/>
 						<field name="provincia" />
-						<field name="nacionalidad_id"/>
 						<field name="direccion"/>
 						<field name="correo"/>
+						<field name="nacionalidad_id"/>
 					</page>
 					<page string="Compras Realizadas">	
 						<field name="compras_ids"/>
 					</page>
 				</notebook>
+					<newline></newline>
+					<separator string = "Workflow" colspan = "4"/>
+					<field name = 'state' widget = 'statusbar' statusbar_visible="solicitante,contratado,despedido" statusbar_colors = '{"solicitante":"orange","contratado":"green","despedido":"red"}'/>
+					 	
+					<button name ="contratar" states ="solicitante" string = "Contratar" colspan ="2" icon ="gtk-ok" />
+					<button name ="despedir" states ="contratado" string = "Despedir" colspan ="2" icon ="gtk-apply" />	
 				</form>
 			</field>
 		</record>
@@ -42,9 +48,9 @@
 					<field name="numero_ventas"/>
 					<field name="salario"/>
 					<field name="provincia" />
-					<field name="nacionalidad_id"/>
 					<field name="direccion"/>
 					<field name="correo"/>
+					<field name="nacionalidad_id"/>
                 </tree>
             </field>
  		</record>

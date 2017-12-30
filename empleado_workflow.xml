@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Declaracion del workflow -->
+    	<record id ="wkf_empleado" model = "workflow">
+    		<field name = "name">empleado.basic</field>
+    		<field name = "osv">empleado</field>
+    		<field name = "on_create">True</field>
+    	</record>
+    	
+    	<!-- Declaracion de nodos -->
+    	<record model = "workflow.activity" id = "act_empleado_solicitante">
+    		<field name = "wkf_id" ref = "wkf_empleado"/>
+    		<field name = "flow_start">True</field>
+    		<field name = "name">Solicitante</field>
+    	    <field name = "kind">dummy</field>
+    	</record>
+    	<record model = "workflow.activity" id = "act_empleado_contratado">
+    		<field name = "wkf_id" ref = "wkf_empleado"/>
+    		<field name = "name">Contratado</field>
+    	    <field name = "kind">function</field>
+    	    <field name = "action">write({'state':'contratado'})</field>    	
+    	</record>
+    	<record model = "workflow.activity" id = "act_empleado_despedido">
+    		<field name = "wkf_id" ref = "wkf_empleado"/>
+    		<field name = "name">Despedido</field>
+    	    <field name = "kind">function</field>
+    	    <field name = "action">write({'state':'despedido'})</field>   
+    	    <field name = "flow_stop">True</field> 	
+    	</record>
+    	
+    	<!-- Declaracion de transiciones -->
+    	<record model = "workflow.transition" id = "trans_solicitante_contratado">
+    		<field name = "act_from" ref = "act_empleado_solicitante"/>
+    		<field name = "act_to" ref = "act_empleado_contratado"/>
+    		<field name = "signal">contratar</field>
+    	</record>
+    	<record model = "workflow.transition" id = "trans_contratado_despedido">
+    		<field name = "act_from" ref = "act_empleado_contratado"/>
+    		<field name = "act_to" ref = "act_empleado_despedido"/>
+    		<field name = "signal">despedir</field>
+    	</record>
+    </data>
+</openerp>
