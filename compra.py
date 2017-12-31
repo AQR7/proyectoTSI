@@ -36,7 +36,9 @@ class compra(osv.Model):
             'image': fields.binary('Contrato', help = 'Seleccionar imagen'),
             'proveedor_id': many2one('proveedor','Proveedor',required=True),
             'empleado_id': many2one('empleado','Empleado',required=True),
-            
-            
+            'vehiculo_id': many2one('vehiculo','Vehiculo',required=True),#Al no existir relacion one2one en esta version usaremos many2one
+            'state': fields.selection([('en_proceso','En proceso'),('finalizada','Finalizada')],'Estados')      
         }
+    _defaults = {'state' : 'en_proceso'}
+     
 compra()

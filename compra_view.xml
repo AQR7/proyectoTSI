@@ -15,6 +15,15 @@
 					<field name="image"/>
 					<field name="proveedor_id"/>
 					<field name="empleado_id"/>
+					<group col = "4" string = "Vehiculo">
+						<field name="vehiculo_id"/>
+					</group>
+					
+					<newline></newline>
+			    	<separator string = "Workflow" colspan = "4"/>
+					<field name = 'state' widget = 'statusbar' statusbar_visible="en_proceso,finalizada" statusbar_colors = '{"en_proceso":"orange","finalizada":"green"}'/>
+					 	
+					<button name ="confirmar" states ="en_proceso" string = "Confirmar" colspan ="1" icon ="gtk-ok" />		
 				</form>
 			</field>
 		</record>
@@ -32,6 +41,7 @@
 					<field name="image"/>
 					<field name="proveedor_id"/>
 					<field name="empleado_id"/>
+					<field name="vehiculo_id"/>
                 </tree>
             </field>
  		</record>
