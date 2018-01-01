@@ -26,6 +26,13 @@ class empleado(osv.Model):
     _name = 'empleado'
     _description = 'Empleado de QUINTOCAR'
     
+    def on_change_empleado(self,cr,uid,ids,estado):
+        warning={
+                'title' : 'Estado Incorrecto' ,
+                'message' : 'El empleado debe estar contratado' }
+        if estado!="contratado" :
+            return { 'value' :{ 'name' : 'ERROR' }, 'warning' :warning}
+    
     _columns = {
             'name':fields.char('Nombre', size = 15, required = True),
             'apellidos':fields.char('Apellidos', size = 60, required = True),

@@ -21,8 +21,11 @@
 						<field name="correo"/>
 						<field name="nacionalidad_id"/>
 					</page>
-					<page string="Compras Realizadas">	
-						<field name="compras_ids"/>
+					<page string="Compras Realizadas">
+					<field name="state" position="before">
+						<field name="compras_ids" colspan="5" on_change="on_change_empleado(state)" />
+					</field>	
+						<!-- <field name="compras_ids"/> -->
 					</page>
 				</notebook>
 					<newline></newline>

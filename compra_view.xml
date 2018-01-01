@@ -13,7 +13,9 @@
 						<field name="vehiculo_id" />
 						<newline/>
 						<field name="proveedor_id" />
-						<field name="empleado_id" />
+						
+					    <field name="empleado_id" />
+						
 						<field name="importe" />
 						<field name="fecha" />
 						<field name="comentarios" />
