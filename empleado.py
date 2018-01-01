@@ -26,13 +26,6 @@ class empleado(osv.Model):
     _name = 'empleado'
     _description = 'Empleado de QUINTOCAR'
     
-    def on_change_empleado(self,cr,uid,ids,estado):
-        warning={
-                'title' : 'Estado Incorrecto' ,
-                'message' : 'El empleado debe estar contratado' }
-        if estado!="contratado" :
-            return { 'value' :{ 'name' : 'ERROR' }, 'warning' :warning}
-    
     _columns = {
             'name':fields.char('Nombre', size = 15, required = True),
             'apellidos':fields.char('Apellidos', size = 60, required = True),
@@ -44,7 +37,9 @@ class empleado(osv.Model):
             'direccion': fields.char('Direccion', required=True),
             'correo': fields.char('Direccion de correo', size = 40, required = True),
             'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False),
-            'state':fields.selection([('solicitante','Solicitante'),('contratado','Contratado'),('despedido','Despedido')],'Estados')
+            'state':fields.selection([('solicitante','Solicitante'),('contratado','Contratado'),('despedido','Despedido')],'Estados'),
+            'fechaComienzo':fields.datetime('Fecha comienzo',required=True, autodate = False),
+            'fechaFinalizacion':fields.datetime('Fecha finalizacion contrato',required=True, autodate = False)
             }
     _defaults = {'state': 'solicitante'}
     

@@ -18,14 +18,16 @@
 						<field name="salario"/>
 						<field name="provincia" />
 						<field name="direccion"/>
-						<field name="correo"/>
+						<field name="correo" widget="email"/>
 						<field name="nacionalidad_id"/>
+						<group>
+							<field name="fechaComienzo"/>
+							<field name="fechaFinalizacion"/>
+						</group>
 					</page>
 					<page string="Compras Realizadas">
-					<field name="state" position="before">
-						<field name="compras_ids" colspan="5" on_change="on_change_empleado(state)" />
-					</field>	
-						<!-- <field name="compras_ids"/> -->
+						
+						<field name="compras_ids"/>
 					</page>
 				</notebook>
 					<newline></newline>
@@ -52,7 +54,7 @@
 					<field name="salario"/>
 					<field name="provincia" />
 					<field name="direccion"/>
-					<field name="correo"/>
+					<field name="correo" widget="email"/>
 					<field name="nacionalidad_id"/>
                 </tree>
             </field>
@@ -70,13 +72,25 @@
                 </graph>
             </field>
  		</record>
+ 		
+ 		<record model="ir.ui.view" id="view_empleado_gantt">
+			<field name="name">view_empleado_gantt</field>
+			<field name="model">empleado</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<gantt color="name" date_stop="fechaFinalizacion" date_start="fechaComienzo" mode = "year" string="Tiempo contratacion">
+	       			<field name="name"/>
+				</gantt>
+			</field>
+		</record>
+ 		
 
  		<!-- Definicion de acciones -->
 		<record id="act_empleado" model="ir.actions.act_window">
 			<field name="name">Empleados</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree,graph</field>
+			<field name="view_mode">form,tree,graph,gantt</field>
 		</record>
 		
 		<!-- Definicion de menus -->

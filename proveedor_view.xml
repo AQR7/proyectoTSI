@@ -17,7 +17,7 @@
 						<field name="telefono"/>
 						<field name="tipo"/>
 						<field name="sede" />
-						<field name="correo"/>
+						<field name="correo" widget="email"/>
 					</page>
 					<page string = "Ventas Realizadas">	
 						<field name="compras_ids" readonly="True"/>
@@ -40,7 +40,7 @@
 					<field name="telefono"/>
 					<field name="tipo"/>
 					<field name="sede" />
-					<field name="correo"/>
+					<field name="correo" widget="email"/>
                 </tree>
             </field>
  		</record>
