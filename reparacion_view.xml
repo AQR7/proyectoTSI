@@ -7,13 +7,13 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Reparación">
-				
+
 					<field name="name" colspan="2" />
 
 					<notebook colspan="4">
 						<page string="Datos reparacion">
-							<field name="vehiculo_id"/>
-							<newline/>
+							<field name="vehiculo_id" />
+							<newline />
 							<field name="coste" widget="monetary" />
 							<field name="fecharep" />
 							<field name="descripcion" colspan="4" />
@@ -21,7 +21,7 @@
 
 						</page>
 						<page string="Talleres">
-							<field name="talleres_ids"/>
+							<field name="talleres_ids" />
 						</page>
 					</notebook>
 				</form>
@@ -44,11 +44,37 @@
 		</record>
 
 
+		<record id="view_filtro_reparacion" model="ir.ui.view">
+			<field name="name">view_filtro_reparacion</field>
+			<field name="model">reparacion</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+					<filter name="group_user" string="Por vehiculo" context="{'group_by':'vehiculo_id'}" />
+					<separator />
+					<filter string="Importe mayor que 100"  domain="[('coste','&gt;',100)]"/>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_reparacion_calendar">
+			<field name="name">view_reparacion_calendar</field>
+			<field name="model">reparacion</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar color="name" date_start="fecharep" string="Reparaciones">
+					<field name="name"/>
+					<field name="vehiculo_id"/>
+				</calendar>
+			</field>
+		</record>
+
+
 		<record id="act_reparacion" model="ir.actions.act_window">
 			<field name="name">Reparaciones</field>
 			<field name="res_model">reparacion</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,calendar</field>
 		</record>
 
 		<menuitem id="quintoCar" name="QuintoCar" action="act_reparacion" />

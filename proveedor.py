@@ -28,10 +28,12 @@ class proveedor(osv.Model):
     
     _columns = {
             'name':fields.char('CIF', size = 15, required = True),
-            'nombre':fields.char('Nombre', size = 20, required = True),
-            'direccion': fields.text('Direccion'),
-            'telefono':fields.char('Telefono', size = 10, required = True),
-            'tipo': fields.char('Tipo', size=64, required=False, readonly=False),
+            'nombre':fields.char('Nombre', size = 40, required = True),
+            'direccion': fields.char('Direccion'),
+            'telefono':fields.integer('Telefono', size = 9, required = True),
+            'tipo': fields.selection([
+            ('particular','Particular'),
+            ('empresa','Empresa'),],'Tipo',required=True),
             'sede': fields.char('Sede', size=64, required=False, readonly=False),
             'correo': fields.char('Direccion de correo', size = 40, required = True),
             'compras_ids': fields.one2many('compra','proveedor_id', 'Ventas realizadas', required=False)            

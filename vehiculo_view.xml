@@ -9,7 +9,7 @@
 				<form string="Vehiculos">
 					<field name="name" colspan="2" />
 					<newline></newline>
-					<field name="marca"/>
+					<field name="marca" />
 					<field name="modelo" />
 					<field name="combustible" />
 					<field name="tasacion" />
@@ -47,11 +47,24 @@
 			</field>
 		</record>
 
+		<record model="ir.ui.view" id="view_vehiculo_graph">
+			<field name="name">view_vehiculo_graph</field>
+			<field name="model">vehiculo</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Tasacion total por marca" type="bar">
+					<field name="marca" group="True"/>
+					<field name="tasacion" operator="*"></field>
+				</graph>
+			</field>
+		</record>
+
+
 		<record id="act_vehiculo" model="ir.actions.act_window">
 			<field name="name">Vehiculos</field>
 			<field name="res_model">vehiculo</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,graph</field>
 		</record>
 
 		<menuitem id="quintoCar" name="QuintoCar" action="act_vehiculo" />

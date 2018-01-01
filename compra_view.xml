@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-	
+
 		<!-- Form view, Vista tipo formulario -->
 		<record model="ir.ui.view" id="view_compra_form">
 			<field name="name">view_compra_form</field>
@@ -9,55 +9,58 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Compras">
-					<field name="importe"/>
-					<field name="fecha" />
-					<field name="comentarios"/>
-					<field name="image"/>
-					<field name="proveedor_id"/>
-					<field name="empleado_id"/>
-					<group col = "4" string = "Vehiculo">
-						<field name="vehiculo_id"/>
+					<group col="4" string="Datos de la compra">
+						<field name="vehiculo_id" />
+						<newline/>
+						<field name="proveedor_id" />
+						<field name="empleado_id" />
+						<field name="importe" />
+						<field name="fecha" />
+						<field name="comentarios" />
+						<field name="image" widget="image" />
 					</group>
-					
 					<newline></newline>
-			    	<separator string = "Workflow" colspan = "4"/>
-					<field name = 'state' widget = 'statusbar' statusbar_visible="en_proceso,finalizada" statusbar_colors = '{"en_proceso":"orange","finalizada":"green"}'/>
-					 	
-					<button name ="confirmar" states ="en_proceso" string = "Confirmar" colspan ="1" icon ="gtk-ok" />		
+					<group string="Workflow" col="4">
+						<field name='state' widget='statusbar' statusbar_visible="en_proceso,finalizada"
+							statusbar_colors='{"en_proceso":"orange","finalizada":"green"}' />
+
+						<button name="confirmar" states="en_proceso" string="Confirmar"
+							colspan="1" icon="gtk-ok" />
+					</group>
+
 				</form>
 			</field>
 		</record>
-		
+
 		<!-- Tree view, Vista con estructura de arbol -->
- 		<record model = "ir.ui.view" id = "view_compra_tree">
- 			<field name = "name">view_compra_tree</field>
- 			<field name = "model">compra</field>
- 			<field name = "type">tree</field>
- 			<field name = "arch" type = "xml">
-            	<tree string="tree_string">
-					<field name="importe"/>
+		<record model="ir.ui.view" id="view_compra_tree">
+			<field name="name">view_compra_tree</field>
+			<field name="model">compra</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="vehiculo_id" />
+					<field name="proveedor_id" />
+					<field name="empleado_id" />
+					<field name="importe" />
 					<field name="fecha" />
-					<field name="comentarios"/>
-					<field name="image"/>
-					<field name="proveedor_id"/>
-					<field name="empleado_id"/>
-					<field name="vehiculo_id"/>
-                </tree>
-            </field>
- 		</record>
-		
- 		<!-- Definicion de acciones -->
+					<field name="comentarios" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Definicion de acciones -->
 		<record id="act_compra" model="ir.actions.act_window">
 			<field name="name">Compras</field>
 			<field name="res_model">compra</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		
+
 		<!-- Definicion de menus -->
 		<menuitem name="Compras" id="compras_submenu" parent="quintoCar"
 			sequence="120" />
-		<menuitem name="Ver Compras" id="ver_compras_submenu" parent="compras_submenu"
+		<menuitem name="Ver compras" id="ver_compras_submenu" parent="compras_submenu"
 			sequence="130" action="act_compra" />
 	</data>
 </openerp>

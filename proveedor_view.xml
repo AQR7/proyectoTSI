@@ -20,7 +20,7 @@
 						<field name="correo"/>
 					</page>
 					<page string = "Ventas Realizadas">	
-						<field name="compras_ids"/>
+						<field name="compras_ids" readonly="True"/>
 					</page>
 				</notebook>
 				</form>

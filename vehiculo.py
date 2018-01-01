@@ -24,25 +24,44 @@ from osv import fields
 
 class vehiculo(osv.Model):
 
+
+    def _check_plazas(self, cr, uid, ids):   
+        for vehiculo in self.browse(cr, uid, ids):
+            if vehiculo.plazas <= 0: 
+                return False  # No puede haber un vehiculo sin plazas o plazas negativas
+        return True
+
+    def _check_tasacion(self, cr, uid, ids):   
+        for vehiculo in self.browse(cr, uid, ids):
+            if vehiculo.tasacion <= 0: 
+                return False  # No puede haber un vehiculo sin tasacion o con tasacion negativa
+        return True
+
     _name = 'vehiculo'
     _description = 'Modelo para vehiculos'
  
     _columns = {
             'name':fields.char('Matricula', size=9, required=True),
             'marca':fields.selection([
-            ('bmw','BMW'),
-            ('ford','FORD'),
-            ('mercedes','MERCEDES'),
-            ('audi','AUDI'),
-            ('seat','SEAT'),
-            ('toyota','TOYOTA'),
-            ('peugeot','PEUGEOT'),],'Marca',required=True),
+            ('bmw', 'BMW'),
+            ('ford', 'FORD'),
+            ('mercedes', 'MERCEDES'),
+            ('audi', 'AUDI'),
+            ('seat', 'SEAT'),
+            ('toyota', 'TOYOTA'),
+            ('peugeot', 'PEUGEOT'), ], 'Marca', required=True),
             'modelo':fields.char('Modelo', size=60, required=True),
-            'tasacion':fields.float("Tasacion",required=True),
+            'tasacion':fields.float("Tasacion", required=True),
             'combustible':fields.selection([
-            ('gasolina','Gasolina'),
-            ('diesel','Diesel'),
-            ('electrico','Electrico'),], 'Tipo de combustible'),
+            ('gasolina', 'Gasolina'),
+            ('diesel', 'Diesel'),
+            ('electrico', 'Electrico'), ], 'Tipo de combustible'),
             'plazas':fields.integer("Numero de plazas")
         }
+    
+    _constraints = [(_check_plazas, '¡ Numero de plazas incorrecto !' , [ 'plazas' ]),
+                    (_check_tasacion, '¡ La tasacion del vehiculo debe ser positiva !' , [ 'tasacion' ])]
+    
+    _sql_constraints = [ ('name_uniq', 'unique (name)', 'Esa matricula ya existe'), ]
+        
 vehiculo()

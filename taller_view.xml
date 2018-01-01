@@ -53,12 +53,23 @@
 			</field>
 		</record>
 
+		<record model="ir.ui.view" id="view_reparacion_calendar">
+			<field name="name">view_reparacion_calendar</field>
+			<field name="model">taller</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar color="name" date_start="fechaApertura" string="Talleres">
+					<field name="name"/>
+					<field name="cif"/>
+				</calendar>
+			</field>
+		</record>
 
 		<record id="act_taller" model="ir.actions.act_window">
 			<field name="name">Talleres</field>
 			<field name="res_model">taller</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,calendar</field>
 		</record>
 
 		<menuitem id="quintoCar" name="QuintoCar" action="act_taller" />
