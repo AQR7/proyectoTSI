@@ -21,8 +21,8 @@
 						<field name="correo" widget="email"/>
 						<field name="nacionalidad_id"/>
 						<group>
-							<field name="fechaComienzo"/>
-							<field name="fechaFinalizacion"/>
+							<field name="fechaInicioContrato"/>
+							<field name="fechaFinContrato"/>
 						</group>
 					</page>
 					<page string="Compras Realizadas">
