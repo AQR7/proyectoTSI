@@ -19,14 +19,26 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-import vehiculo
-import empleado
-import cliente
-import reparacion
-import taller
-import compra
-import proveedor
-import workflow
-import cliente
-import extras
-import venta
+from osv import osv
+from osv import fields
+from openerp.osv.fields import many2one
+
+
+class venta(osv.Model):
+
+    _name = 'venta'
+    _description = 'Modelo para venta'
+ 
+    _columns = {
+            'importe': fields.float('Importe'),
+            'fecha': fields.datetime('Fecha',required=True, autodate = True), 
+            'comentarios': fields.text('Comentarios'),
+            'image': fields.binary('Contrato', help = 'Seleccionar imagen'),
+            'cliente_id': many2one('cliente','Cliente',required=True),#Al no existir relacion one2one en esta version usaremos many2one
+            'empleado_id': many2one('empleado','Empleado',required=True),
+            'vehiculo_id': many2one('vehiculo','Vehiculo',required=True),#Al no existir relacion one2one en esta version usaremos many2one
+            'state': fields.selection([('en_proceso','En proceso'),('finalizada','Finalizada')],'Estados')      
+        }
+    _defaults = {'state' : 'en_proceso'}
+     
+venta()

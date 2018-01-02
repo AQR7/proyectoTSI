@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Declaracion del workflow -->
+    	<record id ="wkf_venta" model = "workflow">
+    		<field name = "name">venta.basic</field>
+    		<field name = "osv">venta</field>
+    		<field name = "on_create">True</field>
+    	</record>
+    	
+    	<!-- Declaracion de nodos -->
+    	<record model = "workflow.activity" id = "act_venta_enProceso">
+    		<field name = "wkf_id" ref = "wkf_venta"/>
+    		<field name = "flow_start">True</field>
+    		<field name = "name">En_Proceso</field>
+    	    <field name = "kind">dummy</field>
+    	</record>
+    	<record model = "workflow.activity" id = "act_venta_finalizada">
+    		<field name = "wkf_id" ref = "wkf_venta"/>
+    		<field name = "name">Finalizada</field>
+    	    <field name = "kind">function</field>
+    	    <field name = "action">write({'state':'finalizada'})</field>    	
+    	</record>
+    	
+    	<!-- Declaracion de transiciones -->
+    	<record model = "workflow.transition" id = "trans_enProceso_finalizada">
+    		<field name = "act_from" ref = "act_venta_enProceso"/>
+    		<field name = "act_to" ref = "act_venta_finalizada"/>
+    		<field name = "signal">confirmar</field>
+    	</record>
+    </data>
+</openerp>

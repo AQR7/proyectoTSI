@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<!-- Form view, Vista tipo formulario -->
+		<record model="ir.ui.view" id="view_venta_form">
+			<field name="name">view_venta_form</field>
+			<field name="model">venta</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Ventas">
+					<group col="4" string="Datos de la venta">
+						<field name="vehiculo_id" />
+						<newline/>
+						<field name="cliente_id" />
+						
+					    <field name="empleado_id" />
+						
+						<field name="importe" />
+						<field name="fecha" />
+						<field name="comentarios" />
+						<field name="image" widget="image" />
+					</group>
+					<newline></newline>
+					<group string="Workflow" col="4">
+						<field name='state' widget='statusbar' statusbar_visible="en_proceso,finalizada"
+							statusbar_colors='{"en_proceso":"orange","finalizada":"green"}' />
+
+						<button name="confirmar" states="en_proceso" string="Confirmar"
+							colspan="1" icon="gtk-ok" />
+					</group>
+
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree view, Vista con estructura de arbol -->
+		<record model="ir.ui.view" id="view_venta_tree">
+			<field name="name">view_venta_tree</field>
+			<field name="model">venta</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="vehiculo_id" />
+					<field name="cliente_id" />
+					<field name="empleado_id" />
+					<field name="importe" />
+					<field name="fecha" />
+					<field name="comentarios" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Definicion de acciones -->
+		<record id="act_venta" model="ir.actions.act_window">
+			<field name="name">Ventas</field>
+			<field name="res_model">venta</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+		<!-- Definicion de menus -->
+		<menuitem name="Ventas" id="ventas_submenu" parent="quintoCar"
+			sequence="120" />
+		<menuitem name="Ver ventas" id="ver_ventas_submenu" parent="ventas_submenu"
+			sequence="130" action="act_venta" />
+	</data>
+</openerp>
