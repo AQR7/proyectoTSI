@@ -22,16 +22,13 @@
 from osv import osv
 from osv import fields
 
-class cliente(osv.Model):
+class extras(osv.Model):
 
-    _name = 'cliente'
-    _description = 'Modelo para clientes'
+    _name = 'extras'
+    _description = 'Modelo para extras'
  
     _columns = {
-            'name':fields.char('DNI', size=9, required=True),
-            'nombre':fields.char('Nombre', size=30,required=True),
-            'apellidos':fields.char('Apellidos',size=64,required=True),
-            'nacionalidad_id': fields.many2one('res.country','Nacionalidad',required=True),
-            'telefono':fields.char("Telefono",required=True),
+            'name':fields.char('Nombre', size=30, required=True),
+            'descripcion':fields.text('Descripcion')
         }
-cliente()
+extras()

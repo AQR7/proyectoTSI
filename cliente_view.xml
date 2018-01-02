@@ -11,6 +11,7 @@
 					<field name="nombre" />
 					<field name="apellidos" />
 					<field name="telefono" />
+					<field name="nacionalidad_id"/>
 				</form>
 			</field>
 		</record>
@@ -25,6 +26,7 @@
 					<field name="nombre" />
 					<field name="apellidos" />
 					<field name="telefono" />
+					<field name="nacionalidad_id"/>
 				</tree>
 			</field>
 		</record>
