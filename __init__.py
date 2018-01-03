@@ -27,6 +27,5 @@ import taller
 import compra
 import proveedor
 import workflow
-import cliente
 import extras
 import venta

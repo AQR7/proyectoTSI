@@ -8,3 +8,4 @@ encoding/proveedor.py=utf-8
 encoding/reparacion.py=utf-8
 encoding/taller.py=utf-8
 encoding/vehiculo.py=utf-8
+encoding/venta.py=utf-8
