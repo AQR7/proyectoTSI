@@ -7,7 +7,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Cliente">
-					<field name="name" colspan="2"/>
+					<field name="name" colspan="2" />
 					<notebook colspan="4">
 						<page string="Datos cliente">
 							<field name="nombre" />

@@ -18,7 +18,6 @@
 							<field name="fecharep" />
 							<field name="descripcion" colspan="4" />
 
-
 						</page>
 						<page string="Talleres">
 							<field name="talleres_ids" />
@@ -68,7 +67,7 @@
 				</calendar>
 			</field>
 		</record>
-
+		
 
 		<record id="act_reparacion" model="ir.actions.act_window">
 			<field name="name">Reparaciones</field>

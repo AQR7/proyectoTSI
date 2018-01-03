@@ -23,6 +23,7 @@ from osv import osv
 from osv import fields
 
 class proveedor(osv.Model):
+
     _name = 'proveedor'
     _description = 'Proveedor de QUINTOCAR'
     

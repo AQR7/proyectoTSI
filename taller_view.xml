@@ -20,7 +20,6 @@
 							<field name="fechaApertura" />
 							<field name="especializado" />
 
-
 						</page>
 						<page string="Ver reparaciones">
 							<field name="reparaciones_ids" readonly="True"/>
@@ -53,8 +52,8 @@
 			</field>
 		</record>
 
-		<record model="ir.ui.view" id="view_reparacion_calendar">
-			<field name="name">view_reparacion_calendar</field>
+		<record model="ir.ui.view" id="view_taller_calendar">
+			<field name="name">view_taller_calendar</field>
 			<field name="model">taller</field>
 			<field name="type">calendar</field>
 			<field name="arch" type="xml">

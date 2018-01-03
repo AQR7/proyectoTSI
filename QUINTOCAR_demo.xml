@@ -1,7 +1,24 @@
 <?xml version="1.0"?>
 <openerp>
 	<data noupdate="1">
-<!-- 
+		<record id="extra1" model="extras">
+			<field name="name">Tapiceria de Cuero</field>
+			<field name="descripcion">Tapiceria de todos los asientos de cuero autentico
+			</field>
+		</record>
+
+		<record id="extra2" model="extras">
+			<field name="name">Direccion Electrica</field>
+			<field name="descripcion">Direccion electrica para suavizar los cambios de
+				direccion</field>
+		</record>
+
+		<record id="extra3" model="extras">
+			<field name="name">Regulador Temperatura Asientos</field>
+			<field name="descripcion">Sistema para controlar la temperatura de los
+				asientos</field>
+		</record>
+		
 		<record id="vehiculo1" model="vehiculo">
 			<field name="name">123456789</field>
 			<field name="marca">bmw</field>
@@ -9,6 +26,7 @@
 			<field name="tasacion">1500.00</field>
 			<field name="combustible">gasolina</field>
 			<field name="plazas">5</field>
+			<field name="extras_ids" eval="[(6, 0, [ extra2, ])]"></field>
 		</record>
 
 		<record id="vehiculo2" model="vehiculo">
@@ -18,6 +36,7 @@
 			<field name="tasacion">2000.00</field>
 			<field name="combustible">diesel</field>
 			<field name="plazas">4</field>
+			<field name="extras_ids" eval="[(6, 0, [ extra3, ])]"></field>
 		</record>
 
 		<record id="vehiculo3" model="vehiculo">
@@ -27,6 +46,7 @@
 			<field name="tasacion">3000.00</field>
 			<field name="combustible">electrico</field>
 			<field name="plazas">2</field>
+			<field name="extras_ids" eval="[(6, 0, [ extra1 ,])]"></field>
 		</record>
 
 		<record id="taller1" model="taller">
@@ -104,6 +124,16 @@
 			<field name="correo">proveedor2@gmail.com</field>
 		</record>
 
+		<record id="proveedor3" model="proveedor">
+			<field name="name">28842654F</field>
+			<field name="nombre">Sellcar</field>
+			<field name="direccion">Calle imprenta, 3</field>
+			<field name="telefono">484753692</field>
+			<field name="tipo">particular</field>
+			<field name="sede">Cádiz</field>
+			<field name="correo">proveedor3@gmail.com</field>
+		</record>
+		
 		<record id="empleado1" model="empleado">
 			<field name="name">Javier</field>
 			<field name="apellidos">Bermejo Torrent</field>
@@ -116,6 +146,8 @@
 			<field name="nacionalidad_id">1</field>
 			<field name="fechaInicioContrato">02/01/2018 15:00:00</field>
 			<field name="fechaFinContrato">02/08/2018 15:00:00</field>
+			<field name="compras_ids" eval="[(6, 0, [compra1,])]" ></field>
+			<field name="ventas_ids" eval="[(6, 0, [venta1,])]" ></field>
 		</record>
 
 		<record id="empleado2" model="empleado">
@@ -130,7 +162,10 @@
 			<field name="nacionalidad_id">1</field>
 			<field name="fechaInicioContrato">20/01/2018 15:00:00</field>
 			<field name="fechaFinContrato">20/06/2018 15:00:00</field>
+			<field name="compras_ids" eval="[(6, 0, [compra2,])]" ></field>
+			<field name="ventas_ids" eval="[(6, 0, [venta2,])]" ></field>
 		</record>
+		
 		<record id="empleado3" model="empleado">
 			<field name="name">Domini</field>
 			<field name="apellidos">Elias Pereira de Mattos</field>
@@ -143,7 +178,10 @@
 			<field name="nacionalidad_id">1</field>
 			<field name="fechaInicioContrato">15/01/2018 15:00:00</field>
 			<field name="fechaFinContrato">15/06/2018 15:00:00</field>
+			<field name="compras_ids" eval="[(6, 0, [compra1,])]" ></field>
+			<field name="ventas_ids" eval="[(6, 0, [venta1,])]" ></field>
 		</record>
+		
 		<record id="compra1" model="compra">
 			<field name="vehiculo_id" ref="vehiculo1"></field>
 			<field name="proveedor_id" ref="proveedor1"></field>
@@ -167,7 +205,77 @@
 			<field name="importe">5000.00</field>
 			<field name="fecha">08/01/2018 10:00:00</field>
 			<field name="comentarios">Compra realizada por Domini </field>
-		</record>-->
+		</record>
+		
+		<record id="cliente1" model="cliente">
+			<field name="nombre">Angela</field>
+			<field name="apellidos">Castillo Monte</field>
+			<field name="name">454545457</field>
+			<field name="provincia">Sevilla</field>
+			<field name="telefono">954010101</field>
+			<field name="direccion">Calle Carmona, 8</field>
+			<field name="correo"> angela@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+		</record>
+
+
+		<record id="cliente2" model="cliente">
+			<field name="nombre">Henrique</field>
+			<field name="apellidos">Rivera Veloso</field>
+			<field name="name">898989898</field>
+			<field name="provincia">Madrid</field>
+			<field name="telefono">951000001</field>
+			<field name="direccion">Calle Corola, 18</field>
+			<field name="correo"> henrique@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+		</record>
+
+
+		<record id="cliente3" model="cliente">
+			<field name="nombre">Elisa</field>
+			<field name="apellidos">Moreno Gracia</field>
+			<field name="name">123123123</field>
+			<field name="provincia">Huelva</field>
+			<field name="telefono">952044444</field>
+			<field name="direccion">Calle Betis, 20</field>
+			<field name="correo"> elisa@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+		</record>
+
+
+		<record id="venta1" model="venta">
+			<field name="cliente_id" ref="cliente1"></field>
+			<field name="vehiculo_id" ref="vehiculo1"></field>
+			<field name="empleado_id" ref="empleado1"></field>
+			<field name="importe">4000.00</field>
+			<field name="fecha">01/01/2018
+				15:00:00
+			</field>
+			<field name="comentarios">Venta realizada por Javier </field>
+		</record>
+		
+		<record id="venta2" model="venta">
+				<field name="cliente_id" ref="cliente2"></field>
+			<field name="vehiculo_id" ref="vehiculo2"></field>
+			<field name="empleado_id" ref="empleado2"></field>
+			<field name="importe">10000.00</field>
+			<field name="fecha">02/01/2018
+				19:00:00
+			</field>
+			<field name="comentarios">Venta realizada por Alberto </field>
+		</record>
+		
+		<record id="venta3" model="venta">
+			<field name="cliente_id" ref="cliente1"></field>
+			<field name="vehiculo_id" ref="vehiculo3"></field>
+			<field name="empleado_id" ref="empleado3"></field>
+			<field name="importe">8000.00</field>
+			<field name="fecha">03/01/2018
+				11:00:00
+			</field>
+			<field name="comentarios">Venta realizada por Domini </field>
+		</record>
+		
 	</data>
 </openerp>	
 

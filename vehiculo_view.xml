@@ -15,6 +15,7 @@
 						<field name="combustible" />
 						<field name="tasacion" />
 						<field name="plazas" />
+						<field name="numExtras"/>
 					</group>
 					<newline></newline>
 					<group col="4" string="Extras">

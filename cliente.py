@@ -28,13 +28,13 @@ class cliente(osv.Model):
     _description = 'Modelo para clientes'
     
     def on_change_correo(self,cr,uid,ids,correo):
-        	warning={
-                	'title' : 'Atencion' ,
-                	'message' : 'El correo es erroneo. Vuelva a modificar e introduzca formato correcto' }
-        	if "@" not in correo or "." not in correo:
-            		return { 'value' :{ 'correo' : 'ERROR' }, 'warning' :warning}
-            	else:
-            		return { 'value' :{'correo' : correo }}
+    	warning={
+            	'title' : 'Atencion' ,
+            	'message' : 'El correo es erroneo. Vuelva a modificar e introduzca formato correcto' }
+    	if "@" not in correo or "." not in correo:
+        	return { 'value' :{ 'correo' : 'ERROR' }, 'warning' :warning}
+        else:
+        	return { 'value' :{'correo' : correo }}
  
     _columns = {
             'name':fields.char('DNI', size=9, required=True),

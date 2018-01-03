@@ -24,7 +24,7 @@ from osv import osv
 from osv import fields
 
 class reparacion(osv.Model):
-
+ 
     _name = 'reparacion'
     _description = 'Modelo de reparacion de vehiculos'
     _columns = {
@@ -34,5 +34,6 @@ class reparacion(osv.Model):
             'coste':fields.float("Importe",required=True),
             'fecharep': fields.datetime('Fecha reparación',required=True, autodate = True),
             'talleres_ids': fields.many2many('taller','taller_reparacion_rel', 'reparacion_id', 'taller_id', 'Talleres reparacion'),
+            
          }
 reparacion()

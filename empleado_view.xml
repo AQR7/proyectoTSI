@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-	
+
 		<!-- Form view, Vista tipo formulario -->
 		<record model="ir.ui.view" id="view_empleado_form">
 			<field name="name">view_empleado_form</field>
@@ -9,93 +9,96 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Empleados">
-				<notebook colspan="4">
-					<page string="Datos empleado">
-						<field name="name"/>
-						<field name="apellidos" />
-						<field name="DNI"/>
-						<field name="numero_ventas"/>
-						<field name="salario"/>
-						<field name="provincia" />
-						<field name="direccion"/>
-						<field name="correo" widget="email"/>
-						<field name="nacionalidad_id"/>
-						<group>
-							<field name="fechaInicioContrato"/>
-							<field name="fechaFinContrato"/>
-						</group>
-					</page>
-					<page string="Compras Realizadas">
-						<field name="compras_ids"/>
-					</page>
-				</notebook>
+					<notebook colspan="4">
+						<page string="Datos empleado">
+							<field name="name" />
+							<field name="apellidos" />
+							<field name="DNI" />
+							<field name="salario" />
+							<field name="provincia" />
+							<field name="direccion" />
+							<field name="correo" on_change="on_change_correo(correo)" />
+							<field name="nacionalidad_id" />
+							<field name="fechaInicioContrato" />
+							<field name="fechaFinContrato" />
+						</page>
+						<page string="Compras Realizadas">
+							<field name="compras_ids" />
+						</page>
+						<page string="Ventas Realizadas">
+							<field name="ventas_ids" />
+						</page>
+					</notebook>
 					<newline></newline>
-					<separator string = "Workflow" colspan = "4"/>
-					<field name = 'state' widget = 'statusbar' statusbar_visible="solicitante,contratado,despedido" statusbar_colors = '{"solicitante":"orange","contratado":"green","despedido":"red"}'/>
-					 	
-					<button name ="contratar" states ="solicitante" string = "Contratar" colspan ="2" icon ="gtk-ok" />
-					<button name ="despedir" states ="contratado" string = "Despedir" colspan ="2" icon ="gtk-apply" />	
+					<separator string="Workflow" colspan="4" />
+					<field name='state' widget='statusbar' statusbar_visible="solicitante,contratado,despedido"
+						statusbar_colors='{"solicitante":"orange","contratado":"green","despedido":"red"}' />
+
+					<button name="contratar" states="solicitante" string="Contratar"
+						colspan="2" icon="gtk-ok" />
+					<button name="despedir" states="contratado" string="Despedir"
+						colspan="2" icon="gtk-apply" />
 				</form>
 			</field>
 		</record>
-		
+
 		<!-- Tree view, Vista con estructura de arbol -->
- 		<record model = "ir.ui.view" id = "view_empleado_tree">
- 			<field name = "name">view_empleado_tree</field>
- 			<field name = "model">empleado</field>
- 			<field name = "type">tree</field>
- 			<field name = "arch" type = "xml">
-            	<tree string="tree_string">
-                	<field name="name"/>
-                    <field name="apellidos" />
-					<field name="DNI"/>
-					<field name="numero_ventas"/>
-					<field name="salario"/>
+		<record model="ir.ui.view" id="view_empleado_tree">
+			<field name="name">view_empleado_tree</field>
+			<field name="model">empleado</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="apellidos" />
+					<field name="DNI" />
+					<field name="salario" />
 					<field name="provincia" />
-					<field name="direccion"/>
-					<field name="correo" widget="email"/>
-					<field name="nacionalidad_id"/>
-                </tree>
-            </field>
- 		</record>
-		
- 		<!-- Grafico circular (tarta) --> 
- 		<record model = "ir.ui.view" id = "view_empleado_graph">
- 			<field name = "name">view_empleado_graph</field>
- 			<field name = "model">empleado</field>
- 			<field name = "type">graph</field>
- 			<field name = "arch" type = "xml">
-            	<graph string="Ventas por empleado" type="pie">
-					<field name="name"/>
-					<field name="numero_ventas"/>
-                </graph>
-            </field>
- 		</record>
- 		
- 		<record model="ir.ui.view" id="view_empleado_gantt">
+					<field name="direccion" />
+					<field name="correo" widget="email" />
+					<field name="nacionalidad_id" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Grafico circular (tarta) -->
+		<record model="ir.ui.view" id="view_empleado_graph">
+			<field name="name">view_empleado_graph</field>
+			<field name="model">empleado</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Salarios por empleado" type="pie">
+					<field name="name" />
+					<field name="salario" />
+				</graph>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_empleado_gantt">
 			<field name="name">view_empleado_gantt</field>
 			<field name="model">empleado</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<gantt color="name" date_stop="fechaFinContrato" date_start="fechaInicioContrato" mode = "year" string="Tiempo contratacion">
-	       			<field name="name"/>
+				<gantt color="name" date_stop="fechaFinContrato" date_start="fechaInicioContrato"
+					mode="year" string="Tiempo contratacion">
+					<field name="name" />
 				</gantt>
 			</field>
 		</record>
- 		
 
- 		<!-- Definicion de acciones -->
+
+		<!-- Definicion de acciones -->
 		<record id="act_empleado" model="ir.actions.act_window">
 			<field name="name">Empleados</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree,graph,gantt</field>
 		</record>
-		
+
 		<!-- Definicion de menus -->
 		<menuitem name="Empleado" id="empleados_submenu" parent="quintoCar"
 			sequence="120" />
-		<menuitem name="Ver empleados" id="ver_empleados_submenu" parent="empleados_submenu"
-			sequence="130" action="act_empleado" />
+		<menuitem name="Ver empleados" id="ver_empleados_submenu"
+			parent="empleados_submenu" sequence="130" action="act_empleado" />
 	</data>
 </openerp>

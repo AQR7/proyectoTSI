@@ -23,24 +23,35 @@ from osv import osv
 from osv import fields
 
 class empleado(osv.Model):
+    
+    
+
+             
     _name = 'empleado'
     _description = 'Empleado de QUINTOCAR'
-    
+    def on_change_correo(self,cr,uid,ids,correo):
+        warning={
+                'title' : 'Atencion' ,
+                'message' : 'El correo es erroneo. Vuelva a modificar e introduzca formato correcto' }
+        if "@" not in correo or "." not in correo:
+            return { 'value' :{ 'correo' : 'ERROR' }, 'warning' :warning}
+        else:
+            return { 'value' :{'correo' : correo }}    
     _columns = {
-            'name':fields.char('Nombre', size = 15, required = True),
-            'apellidos':fields.char('Apellidos', size = 60, required = True),
-            'DNI':fields.char('DNI', size = 10, required = True),
-            'numero_ventas':fields.integer('Numero de ventas', required = True),
-            'salario':fields.float('Salario', required = True),
-            'provincia':fields.char('Provincia', size = 20, required = True),
-            'nacionalidad_id': fields.many2one('res.country','Nacionalidad',required=True),
+            'name':fields.char('Nombre', size=15, required=True),
+            'apellidos':fields.char('Apellidos', size=60, required=True),
+            'DNI':fields.char('DNI', size=9, required=True),
+            'salario':fields.float('Salario', required=True),
+            'provincia':fields.char('Provincia', size=20, required=True),
+            'nacionalidad_id': fields.many2one('res.country', 'Nacionalidad', required=True),
             'direccion': fields.char('Direccion', required=True),
-            'correo': fields.char('Direccion de correo', size = 40, required = True),
-            'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False),
-            'ventas_ids': fields.one2many('venta','empleado_id','Ventas realizadas',required=False),
-            'fechaInicioContrato':fields.datetime('Fecha contratacion',required=True, autodate = False),
-            'fechaFinContrato':fields.datetime('Fecha finalizacion contrato',required=True, autodate = False),
-            'state':fields.selection([('solicitante','Solicitante'),('contratado','Contratado'),('despedido','Despedido')],'Estados')
+            'correo': fields.char('Direccion de correo', size=40, required=True),
+            'compras_ids': fields.one2many('compra', 'empleado_id', 'Compras realizadas', required=False),
+            'ventas_ids': fields.one2many('venta', 'empleado_id', 'Ventas realizadas', required=False),
+            'fechaInicioContrato':fields.datetime('Fecha contratacion', required=True, autodate=False),
+            'fechaFinContrato':fields.datetime('Fecha finalizacion contrato', required=True, autodate=False),
+            'state':fields.selection([('solicitante', 'Solicitante'), ('contratado', 'Contratado'), ('despedido', 'Despedido')], 'Estados'),
+
             }
     _defaults = {'state': 'solicitante'}
     

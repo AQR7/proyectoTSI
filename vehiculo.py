@@ -36,7 +36,13 @@ class vehiculo(osv.Model):
             if vehiculo.tasacion <= 0: 
                 return False  # No puede haber un vehiculo sin tasacion o con tasacion negativa
         return True
-
+    
+    def _extrasTotal(self, cr, uid, ids, field, arg,context=None):                    
+        res = {} 
+        for vehiculo in self.browse(cr,uid,ids,context=context):        
+            res[vehiculo.id] = len(vehiculo.extras_ids)    
+        return res   
+    
     _name = 'vehiculo'
     _description = 'Modelo para vehiculos'
  
@@ -58,6 +64,7 @@ class vehiculo(osv.Model):
             ('electrico', 'Electrico'), ], 'Tipo de combustible'),
             'plazas':fields.integer("Numero de plazas"),
             'extras_ids':fields.many2many('extras','vehiculo_extras_rel', 'vehiculo_id', 'extra_id', 'Extras del vehiculo'),
+            'numExtras':fields.function(_extrasTotal, type='integer', string='Numero de extras', store  = True),
         }
     
     _constraints = [(_check_plazas, '¡ Numero de plazas incorrecto !' , [ 'plazas' ]),
