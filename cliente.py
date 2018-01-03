@@ -26,6 +26,15 @@ class cliente(osv.Model):
 
     _name = 'cliente'
     _description = 'Modelo para clientes'
+    
+    def on_change_correo(self,cr,uid,ids,correo):
+        	warning={
+                	'title' : 'Atencion' ,
+                	'message' : 'El correo es erroneo. Vuelva a modificar e introduzca formato correcto' }
+        	if "@" not in correo or "." not in correo:
+            		return { 'value' :{ 'correo' : 'ERROR' }, 'warning' :warning}
+            	else:
+            		return { 'value' :{'correo' : correo }}
  
     _columns = {
             'name':fields.char('DNI', size=9, required=True),
@@ -33,5 +42,9 @@ class cliente(osv.Model):
             'apellidos':fields.char('Apellidos',size=64,required=True),
             'nacionalidad_id': fields.many2one('res.country','Nacionalidad',required=True),
             'telefono':fields.char("Telefono",required=True),
+            'provincia':fields.char('Provincia',size=64,required=True),
+            'direccion':fields.char('Direccion',size=64,required=True),
+            'correo':fields.char('Correo',size=64,required=True),
         }
+        
 cliente()

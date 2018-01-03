@@ -11,6 +11,9 @@
 					<field name="nombre" />
 					<field name="apellidos" />
 					<field name="telefono" />
+					<field name="direccion" />
+					<field name="correo" on_change="on_change_correo(correo)" />
+					<field name="provincia" />
 					<field name="nacionalidad_id"/>
 				</form>
 			</field>
@@ -26,6 +29,9 @@
 					<field name="nombre" />
 					<field name="apellidos" />
 					<field name="telefono" />
+					<field name="direccion" />
+					<field name="correo" />
+					<field name="provincia" />
 					<field name="nacionalidad_id"/>
 				</tree>
 			</field>
