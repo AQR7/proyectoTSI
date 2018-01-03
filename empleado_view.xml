@@ -26,7 +26,6 @@
 						</group>
 					</page>
 					<page string="Compras Realizadas">
-						
 						<field name="compras_ids"/>
 					</page>
 				</notebook>
@@ -78,7 +77,7 @@
 			<field name="model">empleado</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<gantt color="name" date_stop="fechaFinalizacion" date_start="fechaComienzo" mode = "year" string="Tiempo contratacion">
+				<gantt color="name" date_stop="fechaFinContrato" date_start="fechaInicioContrato" mode = "year" string="Tiempo contratacion">
 	       			<field name="name"/>
 				</gantt>
 			</field>

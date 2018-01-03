@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="1">
+		<record id="proveedor1" model="proveedor">
+			<field name="name">B98342657</field>
+			<field name="nombre">CochEspaña</field>
+			<field name="direccion">Avenida de la Paz, 9</field>
+			<field name="telefono">954418573</field>
+			<field name="tipo">empresa</field>
+			<field name="sede">Sevilla</field>
+			<field name="correo">proveedor1@gmail.com</field>
+		</record>
+		  
+		<record id="proveedor2" model="proveedor">
+			<field name="name">28842657F</field>
+			<field name="nombre">Manuel Aguilar</field>
+			<field name="direccion">Calle imprenta, 2</field>
+			<field name="telefono">666418573</field>
+			<field name="tipo">particular</field>
+			<field name="sede">Granada</field>
+			<field name="correo">proveedor2@gmail.com</field>
+		</record>
+	
+		<record id="empleado1" model="empleado">
+			<field name="name">Javier</field>
+			<field name="apellidos">Bermejo Torrent</field>
+			<field name="DNI">26632856S</field>
+			<field name="numero_ventas">20</field>
+			<field name="salario">1500.0</field>
+			<field name="provincia">Sevilla</field>
+			<field name="direccion">Calle San Fernando, 4</field>
+			<field name="correo"> javier@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+			<field name="fechaInicioContrato">02/01/2018 15:00:00</field>
+			<field name="fechaFinContrato">02/08/2018 15:00:00</field>
+		</record>
+		
+		<record id="empleado2" model="empleado">
+			<field name="name">Alberto</field>
+			<field name="apellidos">Quevedo Rodriguez</field>
+			<field name="DNI">26609432W</field>
+			<field name="numero_ventas">15</field>
+			<field name="salario">1500.0</field>
+			<field name="provincia">Sevilla</field>
+			<field name="direccion">Calle Santa Olalla, 1</field>
+			<field name="correo"> Alberto@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+			<field name="fechaInicioContrato">20/01/2018 15:00:00</field>
+			<field name="fechaFinContrato">20/06/2018 15:00:00</field>
+		</record>
+		<record id="empleado3" model="empleado">
+			<field name="name">Domini</field>
+			<field name="apellidos">Elias Pereira de Mattos</field>
+			<field name="DNI">26661213T</field>
+			<field name="numero_ventas">7</field>
+			<field name="salario">1500.0</field>
+			<field name="provincia">Sevilla</field>
+			<field name="direccion">Calle Alcala, 7</field>
+			<field name="correo"> Domini@gmail.com</field>
+			<field name="nacionalidad_id">1</field>
+			<field name="fechaInicioContrato">15/01/2018 15:00:00</field>
+			<field name="fechaFinContrato">15/06/2018 15:00:00</field>
+		</record>
+		<!--  
+		<record id="compra1" model="compra">
+			<field name="vehiculo_id">vehiculo1</field>
+			<field name="proveedor_id" ref="proveedor1"></field>	
+			<field name="empleado_id" ref="empleado1"></field>
+			<field name="importe">4000</field>
+			<field name="fecha">01/01/2018 15:00:00</field>
+			<field name="comentarios">Compra realizada por Javier </field>
+		</record>
+		<record id="compra2" model="compra">
+			<field name="vehiculo_id">vehiculo2</field>
+			<field name="proveedor_id" ref="proveedor2"></field>	
+			<field name="empleado_id" ref="empleado2"></field>
+			<field name="importe">3000</field>
+			<field name="fecha">07/01/2018 15:00:00</field>
+			<field name="comentarios">Compra realizada por Alberto </field>
+		</record>
+		<record id="compra3" model="compra">
+			<field name="vehiculo_id">vehiculo3</field>
+			<field name="proveedor_id" ref="proveedor1"></field>	
+			<field name="empleado_id" ref="empleado3"></field>
+			<field name="importe">5000</field>
+			<field name="fecha">08/01/2018 15:00:00</field>
+			<field name="comentarios">Compra realizada por Domini </field>
+		</record>
+	-->	
+		
+	<!--  Ejemplos id e ids
+			<field name="gymusers_ids" eval="[(6, 0, [gymuser50, gymuser51,gymuser52, ])]" ></field>
+			<field name="gyminstructor_id" ref="gyminstructor100"></field>
+			
+		-->	
+	</data>
+</openerp>	
+
+		

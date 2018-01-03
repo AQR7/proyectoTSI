@@ -37,7 +37,7 @@ class empleado(osv.Model):
             'direccion': fields.char('Direccion', required=True),
             'correo': fields.char('Direccion de correo', size = 40, required = True),
             'compras_ids': fields.one2many('compra','empleado_id','Compras realizadas',required=False),
-            #'ventas_ids': fields.one2many('venta','empleado_id','Ventas realizadas',required=False),
+            'ventas_ids': fields.one2many('venta','empleado_id','Ventas realizadas',required=False),
             'fechaInicioContrato':fields.datetime('Fecha contratacion',required=True, autodate = False),
             'fechaFinContrato':fields.datetime('Fecha finalizacion contrato',required=True, autodate = False),
             'state':fields.selection([('solicitante','Solicitante'),('contratado','Contratado'),('despedido','Despedido')],'Estados')
