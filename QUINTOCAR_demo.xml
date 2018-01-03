@@ -1,6 +1,90 @@
 <?xml version="1.0"?>
 <openerp>
 	<data noupdate="1">
+
+
+		<record id="vehiculo1" model="vehiculo">
+			<field name="name">123456789</field>
+			<field name="marca">bmw</field>
+			<field name="modelo">X5</field>
+			<field name="tasacion">1500.00</field>
+			<field name="combustible">gasolina</field>
+			<field name="plazas">5</field>
+		</record>
+
+		<record id="vehiculo2" model="vehiculo">
+			<field name="name">147258369</field>
+			<field name="marca">audi</field>
+			<field name="modelo">Q7</field>
+			<field name="tasacion">2000.00</field>
+			<field name="combustible">diesel</field>
+			<field name="plazas">4</field>
+		</record>
+
+		<record id="vehiculo3" model="vehiculo">
+			<field name="name">159487263</field>
+			<field name="marca">ford</field>
+			<field name="modelo">Focus</field>
+			<field name="tasacion">3000.00</field>
+			<field name="combustible">electrico</field>
+			<field name="plazas">2</field>
+		</record>
+
+		<record id="taller1" model="taller">
+			<field name="name">Talleres Paco</field>
+			<field name="cif">123456789</field>
+			<field name="provincia">Sevilla</field>
+			<field name="direccion">Calle falsa 123</field>
+			<field name="especializado">True</field>
+			<field name="fechaApertura">16/01/2018 17:00:00</field>
+		</record>
+
+		<record id="taller2" model="taller">
+			<field name="name">Talleres Lopez</field>
+			<field name="cif">147258369</field>
+			<field name="provincia">Málaga</field>
+			<field name="direccion">Calle falsa 456</field>
+			<field name="especializado" ref="False"></field>
+			<field name="fechaApertura">10/01/2018 17:00:00</field>
+		</record>
+
+		<record id="taller3" model="taller">
+			<field name="name">Talleres Joselito</field>
+			<field name="cif">159487263</field>
+			<field name="provincia">Sevilla</field>
+			<field name="direccion">Calle nueva 123</field>
+			<field name="especializado">True</field>
+			<field name="fechaApertura">15/01/2018 17:00:00</field>
+		</record>
+
+		<record id="reparacion1" model="reparacion">
+			<field name="name">Cambio de ruedas</field>
+			<field name="vehiculo_id" ref="vehiculo1"></field>
+			<field name="descripcion">Necesita el cambio de las ruedas derechas</field>
+			<field name="coste">80.00</field>
+			<field name="fecharep">02/01/2018 17:00:00</field>
+			<field name="talleres_ids" eval="[(6, 0, [taller1, taller2, ])]"></field>
+		</record>
+
+		<record id="reparacion2" model="reparacion">
+			<field name="name">Reparacion motor</field>
+			<field name="vehiculo_id" ref="vehiculo1"></field>
+			<field name="descripcion">Cambio de motor por uno nuevo</field>
+			<field name="coste">500.00</field>
+			<field name="fecharep">05/01/2018 17:00:00</field>
+			<field name="talleres_ids" eval="[(6, 0, [ taller2,taller3,])]"></field>
+		</record>
+
+		<record id="reparacion3" model="reparacion">
+			<field name="name">Cambio junta culata</field>
+			<field name="vehiculo_id" ref="vehiculo2"></field>
+			<field name="descripcion">Cambio de junta culata por una nueva</field>
+			<field name="coste">250.00</field>
+			<field name="fecharep">07/01/2018 17:00:00</field>
+			<field name="talleres_ids" eval="[(6, 0, [taller1,])]"></field>
+		</record>
+
+
 		<record id="proveedor1" model="proveedor">
 			<field name="name">B98342657</field>
 			<field name="nombre">CochEspaña</field>
@@ -10,7 +94,7 @@
 			<field name="sede">Sevilla</field>
 			<field name="correo">proveedor1@gmail.com</field>
 		</record>
-		  
+
 		<record id="proveedor2" model="proveedor">
 			<field name="name">28842657F</field>
 			<field name="nombre">Manuel Aguilar</field>
@@ -20,7 +104,7 @@
 			<field name="sede">Granada</field>
 			<field name="correo">proveedor2@gmail.com</field>
 		</record>
-	
+
 		<record id="empleado1" model="empleado">
 			<field name="name">Javier</field>
 			<field name="apellidos">Bermejo Torrent</field>
@@ -34,7 +118,7 @@
 			<field name="fechaInicioContrato">02/01/2018 15:00:00</field>
 			<field name="fechaFinContrato">02/08/2018 15:00:00</field>
 		</record>
-		
+
 		<record id="empleado2" model="empleado">
 			<field name="name">Alberto</field>
 			<field name="apellidos">Quevedo Rodriguez</field>
@@ -61,38 +145,22 @@
 			<field name="fechaInicioContrato">15/01/2018 15:00:00</field>
 			<field name="fechaFinContrato">15/06/2018 15:00:00</field>
 		</record>
-		<!--  
-		<record id="compra1" model="compra">
-			<field name="vehiculo_id">vehiculo1</field>
-			<field name="proveedor_id" ref="proveedor1"></field>	
-			<field name="empleado_id" ref="empleado1"></field>
-			<field name="importe">4000</field>
-			<field name="fecha">01/01/2018 15:00:00</field>
-			<field name="comentarios">Compra realizada por Javier </field>
-		</record>
-		<record id="compra2" model="compra">
-			<field name="vehiculo_id">vehiculo2</field>
-			<field name="proveedor_id" ref="proveedor2"></field>	
-			<field name="empleado_id" ref="empleado2"></field>
-			<field name="importe">3000</field>
-			<field name="fecha">07/01/2018 15:00:00</field>
-			<field name="comentarios">Compra realizada por Alberto </field>
-		</record>
-		<record id="compra3" model="compra">
-			<field name="vehiculo_id">vehiculo3</field>
-			<field name="proveedor_id" ref="proveedor1"></field>	
-			<field name="empleado_id" ref="empleado3"></field>
-			<field name="importe">5000</field>
-			<field name="fecha">08/01/2018 15:00:00</field>
-			<field name="comentarios">Compra realizada por Domini </field>
-		</record>
-	-->	
-		
-	<!--  Ejemplos id e ids
-			<field name="gymusers_ids" eval="[(6, 0, [gymuser50, gymuser51,gymuser52, ])]" ></field>
-			<field name="gyminstructor_id" ref="gyminstructor100"></field>
-			
-		-->	
+		<!-- <record id="compra1" model="compra"> <field name="vehiculo_id">vehiculo1</field> 
+			<field name="proveedor_id" ref="proveedor1"></field> <field name="empleado_id" 
+			ref="empleado1"></field> <field name="importe">4000</field> <field name="fecha">01/01/2018 
+			15:00:00</field> <field name="comentarios">Compra realizada por Javier </field> 
+			</record> <record id="compra2" model="compra"> <field name="vehiculo_id">vehiculo2</field> 
+			<field name="proveedor_id" ref="proveedor2"></field> <field name="empleado_id" 
+			ref="empleado2"></field> <field name="importe">3000</field> <field name="fecha">07/01/2018 
+			15:00:00</field> <field name="comentarios">Compra realizada por Alberto </field> 
+			</record> <record id="compra3" model="compra"> <field name="vehiculo_id">vehiculo3</field> 
+			<field name="proveedor_id" ref="proveedor1"></field> <field name="empleado_id" 
+			ref="empleado3"></field> <field name="importe">5000</field> <field name="fecha">08/01/2018 
+			15:00:00</field> <field name="comentarios">Compra realizada por Domini </field> 
+			</record> -->
+
+		<!-- Ejemplos id e ids <field name="gymusers_ids" eval="[(6, 0, [gymuser50, 
+			gymuser51,gymuser52, ])]" ></field> <field name="gyminstructor_id" ref="gyminstructor100"></field> -->
 	</data>
 </openerp>	
 
