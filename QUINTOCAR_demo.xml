@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
 	<data noupdate="1">
-
+<!-- 
 		<record id="vehiculo1" model="vehiculo">
 			<field name="name">123456789</field>
 			<field name="marca">bmw</field>
@@ -167,7 +167,7 @@
 			<field name="importe">5000.00</field>
 			<field name="fecha">08/01/2018 10:00:00</field>
 			<field name="comentarios">Compra realizada por Domini </field>
-		</record>
+		</record>-->
 	</data>
 </openerp>	
 

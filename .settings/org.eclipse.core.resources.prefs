@@ -4,6 +4,7 @@ encoding/__openerp__.py=utf-8
 encoding/cliente.py=utf-8
 encoding/compra.py=utf-8
 encoding/empleado.py=utf-8
+encoding/extras.py=utf-8
 encoding/proveedor.py=utf-8
 encoding/reparacion.py=utf-8
 encoding/taller.py=utf-8

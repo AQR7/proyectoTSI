@@ -7,14 +7,23 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Cliente">
-					<field name="name" />
-					<field name="nombre" />
-					<field name="apellidos" />
-					<field name="telefono" />
-					<field name="direccion" />
-					<field name="correo" on_change="on_change_correo(correo)" />
-					<field name="provincia" />
-					<field name="nacionalidad_id"/>
+					<field name="name" colspan="2"/>
+					<notebook colspan="4">
+						<page string="Datos cliente">
+							<field name="nombre" />
+							<field name="apellidos" />
+
+							<field name="direccion" />
+
+							<field name="provincia" />
+							<field name="nacionalidad_id" />
+						</page>
+						<page string="Datos de contacto">
+							<field name="correo" on_change="on_change_correo(correo)" />
+							<field name="telefono" />
+						</page>
+					</notebook>
+
 				</form>
 			</field>
 		</record>
@@ -32,11 +41,11 @@
 					<field name="direccion" />
 					<field name="correo" />
 					<field name="provincia" />
-					<field name="nacionalidad_id"/>
+					<field name="nacionalidad_id" />
 				</tree>
 			</field>
 		</record>
-		
+
 		<record model="ir.ui.view" id="view_cliente_search">
 			<field name="name">view_cliente_search</field>
 			<field name="model">cliente</field>
@@ -45,7 +54,8 @@
 				<search string="Clientes">
 					<field name="nombre" />
 					<group expand="0" string="Agrupar por...">
-						<filter name="group_by_apellidos" string="Apellidos" context="{'group_by':'apellidos'}" />
+						<filter name="group_by_apellidos" string="Apellidos"
+							context="{'group_by':'apellidos'}" />
 					</group>
 				</search>
 			</field>

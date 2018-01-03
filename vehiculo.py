@@ -56,7 +56,8 @@ class vehiculo(osv.Model):
             ('gasolina', 'Gasolina'),
             ('diesel', 'Diesel'),
             ('electrico', 'Electrico'), ], 'Tipo de combustible'),
-            'plazas':fields.integer("Numero de plazas")
+            'plazas':fields.integer("Numero de plazas"),
+            'extras_ids':fields.many2many('extras','vehiculo_extras_rel', 'vehiculo_id', 'extra_id', 'Extras del vehiculo'),
         }
     
     _constraints = [(_check_plazas, '¡ Numero de plazas incorrecto !' , [ 'plazas' ]),

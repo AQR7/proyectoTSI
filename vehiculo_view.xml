@@ -7,13 +7,19 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Vehiculos">
-					<field name="name" colspan="2" />
+					<group col="4" string="Datos del vehiculo">
+						<field name="name" colspan="2" />
+						<newline></newline>
+						<field name="marca" />
+						<field name="modelo" />
+						<field name="combustible" />
+						<field name="tasacion" />
+						<field name="plazas" />
+					</group>
 					<newline></newline>
-					<field name="marca" />
-					<field name="modelo" />
-					<field name="combustible" />
-					<field name="tasacion" />
-					<field name="plazas" />
+					<group col="4" string="Extras">
+						<field name="extras_ids"></field>
+					</group>
 				</form>
 			</field>
 		</record>
@@ -53,7 +59,7 @@
 			<field name="type">graph</field>
 			<field name="arch" type="xml">
 				<graph string="Tasacion total por marca" type="bar">
-					<field name="marca" group="True"/>
+					<field name="marca" group="True" />
 					<field name="tasacion" operator="*"></field>
 				</graph>
 			</field>
